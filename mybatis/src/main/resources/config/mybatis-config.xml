@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+  <environments default="dev">
+    <environment id="dev">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED"> <!-- 데이터베이스 풀 만드는 것 -->
+        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/> <!-- 프로퍼티에서 가져오는것. -->
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="demo"/>
+        <property name="password" value="demo"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <mappers><!-- sql 맵퍼를 만드는 거래.우리는 매퍼밑에 멤버맵이라고 하자 -->
+    <mapper resource="mapper/member-map.xml"/> 
+  </mappers>
+  
+</configuration>
